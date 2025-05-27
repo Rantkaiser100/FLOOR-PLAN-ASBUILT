@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floor Plan Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: #374151;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    }
+
+    .hero {
+      background: url('https://www.floorplanvisuals.com/img/floorplan-background.jpg') no-repeat center center/cover;
+      height: 90vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    .section-title {
+      color: #009fe3;
+    }
+
+    .button-blue {
+      background-color: #3b82f6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .button-blue:hover {
+      background-color: #2563eb;
+    }
+
+    .info-section {
+      padding: 64px 40px;
+      background-color: white;
+    }
+
+    .info-text {
+      color: #374151;
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 768px;
+      margin: 0 auto 48px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .grid-item {
+      background-color: #f9fafb;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .grid-item:hover {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      object-fit: cover;
+    }
+
+    .grid-item h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .toggle-button {
+      padding: 8px;
+      color: #4b5563;
+      border: none;
+      background: none;
+      display: block;
+    }
+
+    .toggle-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .toggle-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png">
+    </div>
+
+    <nav class="nav-links">
+      <a href="main page.html">HOME</a>
+      <a href="work page.html">WORK</a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </nav>
+  </header>
+
+  <section class="info-section">
+    <div style="max-width: 96rem; margin: 0 auto; text-align: center;">
+      <h2 class="section-title" style="font-size: 32px; font-weight: bold; margin-bottom: 32px;">WHAT SETS OUR WORK APART?</h2>
+      <p class="info-text">
+        Our commitment to quality is supported by our use of advanced, high-end scanning technology. This innovative approach allows us to
+        capture every detail with precision, enhancing accuracy in measurements and visual fidelity. We believe that combining cutting-edge
+        tech with our expertise results in immersive, detailed visuals that bring spaces to life. This dedication to high standards sets us apart,
+        ensuring that each project we deliver meets the unique vision and requirements of our clients.
+      </p>
+
+      <div class="grid-container">
+        <div class="grid-item">
+          <img src="FP\FP-SAMPLE-4.jpg">
+          <h3>RESIDENTIAL FLOOR PLANS</h3>
+          <a href="work page content\floorplan.html" class="button-blue">VIEW WORK</a>
+        </div>
+
+        <div class="grid-item">
+          <img src="SP\SP-SAMPLE-3.jpg">
+          <h3>SITE PLANS</h3>
+          <a href="work page content\siteplan.html" class="button-blue">VIEW WORK</a>
+        </div>
+
+        <div class="grid-item">
+          <img src="COMMERCIAL\FP-COMM-SAMPLE-3.jpg">
+          <h3>COMMERCIAL FLOOR PLANS</h3>
+          <a href="work page content\commercial.html" class="button-blue">VIEW WORK</a>
+        </div>
+    </div>
+  </section>
+
+</body>
+</html>
