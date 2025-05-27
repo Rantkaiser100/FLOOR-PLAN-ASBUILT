@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site Plans with Lightbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & Base */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #1f2937;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: #374151;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 1024px;
+      margin: 2rem auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem 2.5rem;
+      box-sizing: border-box;
+    }
+
+    /* Page Title */
+    h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Floor Plan Section */
+    .floor-plan-section {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 2rem;
+    }
+
+    /* Floor plan image container for lightbox */
+    .floor-plan-section a {
+      display: block;
+      width: 30%;
+      max-width: 300px;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .floor-plan-section a img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Details */
+    .details {
+      width: 70%;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .detail-list li {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .detail-list span:first-child {
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .floor-plan-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .floor-plan-section a,
+      .details {
+        width: 100%;
+      }
+      .floor-plan-section a {
+        max-width: 100%;
+      }
+    }
+
+    /* --- Lightbox Styles --- */
+    /* Hide all lightbox overlays initially */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1500;
+    }
+
+    /* Show lightbox when targeted */
+    .lightbox:target {
+      display: flex;
+    }
+
+    /* Lightbox image */
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Close button */
+    .lightbox .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox .close-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="C:\Users\My PC\Desktop\web page\logo.png" alt="Logo" />
+    </div>
+    <nav class="nav-links">
+      <a href="main page.html">HOME</a>
+      <a href="work page.html">WORK</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>COMMERCIAL</h1>
+
+    <!-- Floor plan sections with clickable images linking to lightbox -->
+
+    <section class="floor-plan-section">
+      <a href="#img1">
+        <img src="COMMERCIAL\330IgnacioBlvd-SitePlanB&W-Print.jpg" alt="Belvedere, CA Floor Plan" />
+      </a>
+      <div class="details">
+        <ul class="detail-list">
+          <li><span>Location:</span> Belvedere, CA</li>
+          <li><span>Property Type:</span> Single Family Home</li>
+          <li><span>Size:</span> 12,470 sq ft</li>
+          <li><span>Order:</span> Color floor plan w/ custom exterior add-on</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="floor-plan-section">
+      <a href="#img2">
+        <img src="COMMERCIAL\COLORED-FP-COMM-SAMPLE-1.jpg" alt="Belvedere, CA Floor Plan" />
+      </a>
+      <div class="details">
+        <ul class="detail-list">
+          <li><span>Location:</span> Belvedere, CA</li>
+          <li><span>Property Type:</span> Single Family Home</li>
+          <li><span>Size:</span> 12,470 sq ft</li>
+          <li><span>Order:</span> Color floor plan w/ custom exterior add-on</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="floor-plan-section">
+      <a href="#img3">
+        <img src="COMMERCIAL\COLORED-FP-COMM-SAMPLE-2.jpg" alt="Belvedere, CA Floor Plan" />
+      </a>
+      <div class="details">
+        <ul class="detail-list">
+          <li><span>Location:</span> Belvedere, CA</li>
+          <li><span>Property Type:</span> Single Family Home</li>
+          <li><span>Size:</span> 12,470 sq ft</li>
+          <li><span>Order:</span> Color floor plan w/ custom exterior add-on</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="floor-plan-section">
+      <a href="#img4">
+        <img src="COMMERCIAL\FP-COMM-SAMPLE-3.jpg" alt="Belvedere, CA Floor Plan" />
+      </a>
+      <div class="details">
+        <ul class="detail-list">
+          <li><span>Location:</span> Belvedere, CA</li>
+          <li><span>Property Type:</span> Single Family Home</li>
+          <li><span>Size:</span> 12,470 sq ft</li>
+          <li><span>Order:</span> Color floor plan w/ custom exterior add-on</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="floor-plan-section">
+      <a href="#img5">
+        <img src="COMMERCIAL\SP-COMM-SAMPLE-2.jpg" alt="Belvedere, CA Floor Plan" />
+      </a>
+      <div class="details">
+        <ul class="detail-list">
+          <li><span>Location:</span> Belvedere, CA</li>
+          <li><span>Property Type:</span> Single Family Home</li>
+          <li><span>Size:</span> 12,470 sq ft</li>
+          <li><span>Order:</span> Color floor plan w/ custom exterior add-on</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox overlays -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close-btn" title="Close">&times;</a>
+    <img src="COMMERCIAL\330IgnacioBlvd-SitePlanB&W-Print.jpg" alt="Belvedere, CA Floor Plan Large" />
+  </div>
+
+  <div id="img2" class="lightbox">
+    <a href="#" class="close-btn" title="Close">&times;</a>
+    <img src="COMMERCIAL\COLORED-FP-COMM-SAMPLE-1.jpg" alt="Belvedere, CA Floor Plan Large" />
+  </div>
+
+  <div id="img3" class="lightbox">
+    <a href="#" class="close-btn" title="Close">&times;</a>
+    <img src="COMMERCIAL\COLORED-FP-COMM-SAMPLE-2.jpg" alt="Belvedere, CA Floor Plan Large" />
+  </div>
+
+  <div id="img4" class="lightbox">
+    <a href="#" class="close-btn" title="Close">&times;</a>
+    <img src="COMMERCIAL\FP-COMM-SAMPLE-3.jpg" alt="Belvedere, CA Floor Plan Large" />
+  </div>
+
+  <div id="img5" class="lightbox">
+    <a href="#" class="close-btn" title="Close">&times;</a>
+    <img src="COMMERCIAL\SP-COMM-SAMPLE-2.jpg" alt="Belvedere, CA Floor Plan Large" />
+  </div>
+</body>
+</html>S
